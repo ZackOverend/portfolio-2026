@@ -3,16 +3,19 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-secondary: var(--secondary);
   --color-navbar: var(--navbar);
   --color-navbar-link-hover: var(--navbar-link-hover);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 :root {
-  --background: #8dcee4;
-  --foreground: #171717;
-  --navbar: #a1acc2;
+  --background: #090c10;
+  --foreground: #ededed;
+  --secondary: #1c2430;
+  --navbar: #1e293b;
   --navbar-link-hover: #76ffbf;
   --accent: #76ffbf;
 }
@@ -21,6 +24,7 @@
   :root {
     --background: #090c10;
     --foreground: #ededed;
+    --secondary: #1c2430;
     --navbar: #1e293b;
     --navbar-link-hover: #76ffbf;
     --accent: #76ffbf;
@@ -31,4 +35,49 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* full hero background */
+.hero-bg {
+  background: radial-gradient(
+      1200px 600px at 20% 20%,
+      rgba(255, 255, 255, 0.06),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 70% 30%,
+      rgba(118, 255, 191, 0.05),
+      transparent 60%
+    ),
+    var(--bg);
+}
+
+/* dotted grid overlay */
+.dot-grid {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.12) 1px,
+    transparent 1px
+  );
+  background-size: 14px 14px;
+  background-position: 0 0;
+  mask-image: radial-gradient(
+    circle at 35% 40%,
+    black 0%,
+    black 55%,
+    transparent 85%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle at 35% 40%,
+    black 0%,
+    black 55%,
+    transparent 85%
+  );
+  height: 420px;
+}
+
+/* small glow line under heading */
+.accent-underline {
+  height: 3px;
+  background: var(--color-accent);
+  box-shadow: 0 0 20px rgba(118, 255, 191, 0.25);
 }
