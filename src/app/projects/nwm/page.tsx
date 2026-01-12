@@ -5,11 +5,13 @@ import NoWasteMateNavigation from "./nav-section/nwm-nav";
 import NoWasteMateProjects from "./projects-section/nwm-projects";
 import NoWasteMateHero from "./hero-section/hero";
 import NoWasteMateBody from "./body-section/body";
+import DotGridParallax from "@/app/components/DotGridParallax";
 
 export default function NoWasteMatePage() {
   return (
     <main className="bg-nwm min-h-screen">
-      <div className="pointer-events-none top-0 absolute inset-0 dot-grid opacity-60" />
+      <DotGridParallax className="dot-grid opacity-80" strength={0.2} />
+
       <div className="relative mx-auto max-w-6xl px-8 py-8">
         <div className="grid gap-10 sm:grid-cols-[minmax(0,1fr)_auto]">
           {/* CONTENT COLUMN */}
