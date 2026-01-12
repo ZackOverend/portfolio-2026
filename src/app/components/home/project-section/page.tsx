@@ -9,24 +9,26 @@ const projects = [
     tech: "SwiftUI  Python  TensorFlow  Firebase",
     device: "mobile" as const,
     href: "/projects/nwm",
+    iconSrc: "/thumbnails/nowastemate.svg",
   },
   {
     title: "Image-In website",
     tech: "C#  Asp.NET  Next.JS  React  TypeScript",
     device: "desktop" as const,
     href: "/imagein",
+    iconSrc: "/thumbnails/image-in.svg",
   },
   {
     title: "INDStudio 51 Website",
     tech: "HTML  Next.JS  React  TypeScript",
     device: "desktop" as const,
-    href: "/indstudio51",
+    iconSrc: "/thumbnails/indstudio51.svg",
   },
   {
     title: "Nova Weather App",
     tech: "Flutter  Python  Custom API  Microsoft Azure",
     device: "mobile" as const,
-    href: "/novaweather",
+    iconSrc: "/thumbnails/novaweather.svg",
   },
 ];
 
@@ -56,24 +58,20 @@ const item: Variants = {
 export default function ProjectsSection() {
   return (
     <motion.div
-      className="mt-8 grid grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-2"
+      className="m-24 grid grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-2"
       variants={container}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
     >
       {projects.map((p) => (
-        <motion.div
-          key={p.title}
-          variants={item}
-          whileHover={{ y: -8, scale: 1.01 }}
-          transition={{ duration: 0.2 }}
-        >
+        <motion.div key={p.title} variants={item}>
           <ProjectCard
             title={p.title}
             tech={p.tech}
             device={p.device}
             href={p.href}
+            iconSrc={p.iconSrc}
           />
         </motion.div>
       ))}

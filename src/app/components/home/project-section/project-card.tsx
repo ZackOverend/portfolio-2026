@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 type Device = "mobile" | "desktop";
 
@@ -7,30 +10,16 @@ type ProjectCardProps = {
   tech: string;
   href?: string;
   device?: Device;
-  imageSrc?: string; // optional thumbnail
+  iconSrc?: string;
 };
 
 function DeviceIcon({ device = "desktop" }: { device?: Device }) {
-  if (device === "mobile") {
-    return (
-      <Image
-        src={"/projects-icons/mobile.svg"}
-        alt={"apple logo"}
-        width={32}
-        height={32}
-      />
-    );
-  }
+  const src =
+    device === "mobile"
+      ? "/projects-icons/mobile.svg"
+      : "/projects-icons/desktop.svg";
 
-  // desktop
-  return (
-    <Image
-      src={"/projects-icons/desktop.svg"}
-      alt={"apple logo"}
-      width={32}
-      height={32}
-    />
-  );
+  return <Image src={src} alt="" width={32} height={32} />;
 }
 
 export default function ProjectCard({
@@ -38,41 +27,31 @@ export default function ProjectCard({
   tech,
   href,
   device = "desktop",
-  imageSrc,
+  iconSrc,
 }: ProjectCardProps) {
-  const CardTag: any = href ? "a" : "div";
+  const Card = href ? motion.a : motion.div;
 
   return (
-    <CardTag
+    <Card
       href={href}
-      className={[
-        "group block",
-        "rounded-none",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60",
-      ].join(" ")}
+      className="group block rounded-none"
+      whileHover={{ y: -6, scale: 1.01 }}
+      whileTap={{ scale: 0.99 }}
+      transition={{ duration: 0.18, ease: "easeOut" }}
     >
       {/* top media box */}
-      <div
-        className={[
-          "relative aspect-[16/9]",
-          "w-full overflow-hidden",
-          "border border-white/10",
-          "bg-white",
-          "shadow-[0_0_0_1px_rgba(0,0,0,0.35)]",
-          "transition",
-          "group-hover:shadow-[0_0_0_1px_rgba(118,255,191,0.25),0_18px_60px_-30px_rgba(0,0,0,0.9)]",
-        ].join(" ")}
+      <motion.div
+        className="relative aspect-video w-full overflow-hidden bg-white/5"
+        initial={false}
+        transition={{ duration: 0.22, ease: "easeOut" }}
       >
-        {imageSrc ? (
-          <Image
-            src={imageSrc}
-            alt={title}
-            fill
-            className="object-cover"
-            priority={false}
-          />
+        {/* centered icon */}
+        {iconSrc ? (
+          <div className="pointer-events-none absolute inset-0 grid place-items-center">
+            <Image src={iconSrc} alt="" width={480} height={480} className="" />
+          </div>
         ) : null}
-      </div>
+      </motion.div>
 
       {/* bottom row */}
       <div className="mt-4 flex items-start justify-between gap-6">
@@ -81,10 +60,10 @@ export default function ProjectCard({
           <p className="mt-2 truncate text-sm text-white/40">{tech}</p>
         </div>
 
-        <div className="mt-1 shrink-0 opacity-80 transition group-hover:opacity-100">
+        <div className="mt-1 shrink-0 opacity-100 transition group-hover:opacity-100">
           <DeviceIcon device={device} />
         </div>
       </div>
-    </CardTag>
+    </Card>
   );
 }
