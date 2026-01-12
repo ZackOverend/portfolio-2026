@@ -1,5 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import Gallery, { type GalleryItem } from "@/app/projects/nwm/gallery";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 function ActionButton({
   label,
@@ -20,21 +25,47 @@ function ActionButton({
   );
 }
 
-function FeatureTile({ icon, text }: { icon: React.ReactNode; text: string }) {
+function FeatureTile({
+  icon,
+  text,
+  active,
+  onClick,
+}: {
+  icon: React.ReactNode;
+  text: string;
+  active?: boolean;
+  onClick?: () => void;
+}) {
   return (
-    <div className="flex h-28 w-40 flex-col items-center justify-center gap-3 border border-white/25 bg-white/5 text-center">
+    <button
+      type="button"
+      onClick={onClick}
+      className={[
+        "flex h-28 w-40 flex-col items-center justify-center gap-3 text-center",
+        "border bg-white/5 transition",
+        active ? "border-white/60" : "border-white/25 hover:border-white/45",
+      ].join(" ")}
+    >
       <div className="text-white/90">{icon}</div>
       <div className="px-3 text-[11px] leading-4 text-white/80">{text}</div>
-    </div>
+    </button>
   );
 }
 
 export default function NoWasteMatePage() {
+  const items: GalleryItem[] = [
+    { src: "/nwm/01-ios.png", title: "iOS App (SwiftUI)" },
+    { src: "/nwm/02-swiftui.png", title: "SwiftUI UI & UX" },
+    { src: "/nwm/03-python.png", title: "Python Backend (FastAPI)" },
+    { src: "/nwm/04-api.png", title: "API Integration" },
+    { src: "/nwm/05-firebase.png", title: "Firebase Auth + Firestore" },
+  ];
+
+  const [index, setIndex] = useState(0);
+
   return (
     <main className="bg-nwm min-h-screen">
       {/* dot grid overlay */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-420px dot-grid-soft" />
-
       <div className="relative mx-auto max-w-6xl px-8 py-10 ">
         <div className="sticky top-8 flex justify-end gap-6">
           <ActionButton label="Go Back" href="/">
@@ -71,18 +102,20 @@ export default function NoWasteMatePage() {
                 of the user experience and core application architecture.
               </p>
               <p>
-                While the project was built as a team, my focus is on shaping
-                how the system feels to use and how it is structured under the
-                hood, ensuring the product remained cohesive, scalable, and
-                user-centered as features evolved.
+                While the project was built as a team, my role focused on
+                shaping the system architecture and the overall user experience,
+                ensuring the app was intuitive, cohesive, and well-structured as
+                it grew.
               </p>
             </div>
           </div>
         </div>
 
         {/* feature tiles row */}
-        <div className="mt-14 flex flex-wrap gap-6">
+        <div className="mt-36 flex flex-wrap gap-6">
           <FeatureTile
+            active={index === 0}
+            onClick={() => setIndex(0)}
             icon={
               <Image
                 src={"/projects-icons/apple.svg"}
@@ -94,6 +127,8 @@ export default function NoWasteMatePage() {
             text="Developed for iPhone and iPad Devices"
           />
           <FeatureTile
+            active={index === 1}
+            onClick={() => setIndex(1)}
             icon={
               <Image
                 src={"/projects-icons/swift.svg"}
@@ -102,9 +137,11 @@ export default function NoWasteMatePage() {
                 height={32}
               />
             }
-            text="Developed for iPhone and iPad Devices"
+            text="Native SwiftUI-driven interface"
           />
           <FeatureTile
+            active={index === 2}
+            onClick={() => setIndex(2)}
             icon={
               <Image
                 src={"/projects-icons/python.svg"}
@@ -113,9 +150,11 @@ export default function NoWasteMatePage() {
                 height={32}
               />
             }
-            text="Developed for iPhone and iPad Devices"
+            text="FastAPI Python-Powered Backend"
           />
           <FeatureTile
+            active={index === 3}
+            onClick={() => setIndex(3)}
             icon={
               <Image
                 src={"/projects-icons/api.svg"}
@@ -124,9 +163,11 @@ export default function NoWasteMatePage() {
                 height={32}
               />
             }
-            text="Developed for iPhone and iPad Devices"
+            text="API-Driven Data Flow with Barcode Scanning"
           />
           <FeatureTile
+            active={index === 4}
+            onClick={() => setIndex(4)}
             icon={
               <Image
                 src={"/projects-icons/firebase.svg"}
@@ -135,32 +176,47 @@ export default function NoWasteMatePage() {
                 height={32}
               />
             }
-            text="Developed for iPhone and iPad Devices"
+            text="Token-based Firebase Authentication & Sync"
           />
+        </div>
+        <div className="mt-10">
+          <div className="mx-leading w-full max-w-4xl">
+            <Gallery items={items} index={index} setIndex={setIndex} />
+          </div>
         </div>
 
         {/* next section */}
-        <div className="mt-20">
+        <motion.div
+          className="mt-20"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <h2 className="text-5xl font-light tracking-tight">
             The Problem Identified
           </h2>
 
-          <div className="mt-8 max-w-xl space-y-6 font-mono text-sm leading-6 text-white/75">
+          <div className="mt-8 max-w-4xl space-y-6 text-md">
             <p>
-              NoWasteMate is a full-stack application designed to help people
-              reduce household food waste by making it easier to track
-              groceries, understand expiration timelines, and turn existing
-              ingredients into usable meals.
+              In addition to my technical responsibilities, I played a key role
+              in the design and visual direction of NoWasteMate.{" "}
+              <motion.span
+                className="inline-block relative"
+                initial={{ "--underline-scale": 0 } as any}
+                whileInView={{ "--underline-scale": 1 } as any}
+                viewport={{ once: true, amount: 0.8 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
+              >
+                <span className="animated-underline">
+                  I led the UI and interaction design process in Figma,
+                </span>
+              </motion.span>{" "}
+              testing user flows, and visual hierarchy before implementation.
             </p>
-            <p>
-              The project focuses on real-world behavior: people forget what
-              they have, lose track of freshness, and waste food as a result.
-              NoWasteMate addresses this by combining intuitive inventory
-              tracking with smart recipe generation, all built around a clean,
-              user-centered experience.
-            </p>
+            <p></p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </main>
   );
