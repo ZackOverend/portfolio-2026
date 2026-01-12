@@ -104,3 +104,11 @@ body {
   transform-origin: left;
   transition: transform 0.6s ease-out;
 }
+
+.h1 {
+  @apply text-4xl leading-tight tracking-tight sm:text-5xl;
+}
+
+.h2 {
+  @apply text-2xl leading-tight tracking-tight sm:text-3xl;
+}

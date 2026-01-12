@@ -8,7 +8,7 @@ export default function Hero() {
         <div className="relative mt-10 grid grid-cols-1 gap-10 lg:grid-cols-2">
           {/* left column */}
           <div className="flex flex-col justify-center">
-            <h1 className="text-4xl leading-tight tracking-tight sm:text-5xl">
+            <h1 className="h1">
               Nice to meet you!
               <br />
               I’m{" "}
@@ -52,7 +52,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* subtle outer bottom line like the screenshot */}
         <div className="relative mt-10 h-px w-full bg-white/80" />
       </div>
     </div>
