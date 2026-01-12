@@ -11,7 +11,7 @@ export default function LenisProvider({
   useEffect(() => {
     const lenis = new Lenis({
       // good defaults
-      duration: 1.2,
+      duration: 1,
       smoothWheel: true,
       touchMultiplier: 1.5,
     });

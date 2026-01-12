@@ -1,4 +1,5 @@
-import Hero from "@/app/components/sections/hero/page";
+import Hero from "@/app/components/home/hero/page";
+import ProjectsSection from "./components/home/projects/page";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
 
         <section id="hero">
           <Hero />
+          <ProjectsSection />
         </section>
       </main>
     </div>

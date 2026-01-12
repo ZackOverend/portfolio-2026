@@ -6,6 +6,7 @@
   --color-secondary: var(--secondary);
   --color-navbar: var(--navbar);
   --color-navbar-link-hover: var(--navbar-link-hover);
+  --color-nwm-background: var(--projects-nwm-background)
   --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -18,6 +19,9 @@
   --navbar: #1e293b;
   --navbar-link-hover: #76ffbf;
   --accent: #76ffbf;
+  --projects-nwm-background: radial-gradient(1200px 700px at 30% 10%, rgba(255,255,255,0.12), transparent 55%),
+              radial-gradient(900px 600px at 70% 30%, rgba(255,255,255,0.08), transparent 60%),
+              linear-gradient(180deg, #6f8197 0%, #5c6f88 40%, #556a84 100%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,6 +32,9 @@
     --navbar: #1e293b;
     --navbar-link-hover: #76ffbf;
     --accent: #76ffbf;
+    --projects-nwm-background: radial-gradient(1200px 700px at 30% 10%, rgba(255,255,255,0.12), transparent 55%),
+              radial-gradient(900px 600px at 70% 30%, rgba(255,255,255,0.08), transparent 60%),
+              linear-gradient(180deg, #6f8197 0%, #5c6f88 40%, #556a84 100%);
   }
 }
 
@@ -35,21 +42,6 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-/* full hero background */
-.hero-bg {
-  background: radial-gradient(
-      1200px 600px at 20% 20%,
-      rgba(255, 255, 255, 0.06),
-      transparent 60%
-    ),
-    radial-gradient(
-      900px 500px at 70% 30%,
-      rgba(118, 255, 191, 0.05),
-      transparent 60%
-    ),
-    var(--bg);
 }
 
 /* dotted grid overlay */
