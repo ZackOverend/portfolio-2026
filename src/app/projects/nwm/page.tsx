@@ -11,7 +11,7 @@ function ActionButton({
   children: React.ReactNode;
 }) {
   return (
-    <Link href={href} className="group flex flex-col items-center gap-2">
+    <Link href={href} className="flex flex-col items-center gap-2">
       <div className="grid h-16 w-16 place-items-center rounded-full bg-white text-black shadow-sm transition group-hover:scale-[1.02]">
         {children}
       </div>
@@ -31,15 +31,36 @@ function FeatureTile({ icon, text }: { icon: React.ReactNode; text: string }) {
 
 export default function NoWasteMatePage() {
   return (
-    <main className="bg-nwm-background min-h-screen text-white">
+    <main className="bg-nwm min-h-screen">
       {/* dot grid overlay */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-420px dot-grid-soft" />
 
-      <div className="relative mx-auto max-w-6xl px-8 py-10">
+      <div className="relative mx-auto max-w-6xl px-8 py-10 ">
+        <div className="sticky top-8 flex justify-end gap-6">
+          <ActionButton label="Go Back" href="/">
+            {/* back icon */}
+            <Image
+              src={"/go-back.svg"}
+              alt={"apple logo"}
+              width={24}
+              height={24}
+            />
+          </ActionButton>
+
+          <ActionButton label="View Project" href="#">
+            {/* external link icon */}
+            <Image
+              src={"/external-link.svg"}
+              alt={"apple logo"}
+              width={24}
+              height={24}
+            />
+          </ActionButton>
+        </div>
         {/* top actions */}
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-6xl font-light tracking-tight">
+            <h1 className="text-4xl leading-tight tracking-tight sm:text-5xl">
               No Waste Mate
             </h1>
 
@@ -57,28 +78,6 @@ export default function NoWasteMatePage() {
               </p>
             </div>
           </div>
-
-          <div className="flex gap-6">
-            <ActionButton label="Go Back" href="/">
-              {/* back icon */}
-              <Image
-                src={"/go-back.svg"}
-                alt={"apple logo"}
-                width={24}
-                height={24}
-              />
-            </ActionButton>
-
-            <ActionButton label="View Project" href="#">
-              {/* external link icon */}
-              <Image
-                src={"/external-link.svg"}
-                alt={"apple logo"}
-                width={24}
-                height={24}
-              />
-            </ActionButton>
-          </div>
         </div>
 
         {/* feature tiles row */}
@@ -88,8 +87,8 @@ export default function NoWasteMatePage() {
               <Image
                 src={"/projects-icons/apple.svg"}
                 alt={"apple logo"}
-                width={48}
-                height={48}
+                width={32}
+                height={32}
               />
             }
             text="Developed for iPhone and iPad Devices"
