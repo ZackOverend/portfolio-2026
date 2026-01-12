@@ -13,17 +13,23 @@ type ProjectCardProps = {
 function DeviceIcon({ device = "desktop" }: { device?: Device }) {
   if (device === "mobile") {
     return (
-      <svg viewBox="0 0 24 24" className="h-6 w-6 fill-white/80">
-        <path d="M16 1H8C6.9 1 6 1.9 6 3v18c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-4 21c-.83 0-1.5-.67-1.5-1.5S11.17 19 12 19s1.5.67 1.5 1.5S12.83 22 12 22zm6-4H8V4h10v14z" />
-      </svg>
+      <Image
+        src={"/projects-icons/mobile.svg"}
+        alt={"apple logo"}
+        width={32}
+        height={32}
+      />
     );
   }
 
   // desktop
   return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6 fill-white/80">
-      <path d="M4 5c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h6l-1 2H7v2h10v-2h-2l-1-2h6c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2H4zm16 11H4V7h16v9z" />
-    </svg>
+    <Image
+      src={"/projects-icons/desktop.svg"}
+      alt={"apple logo"}
+      width={32}
+      height={32}
+    />
   );
 }
 
@@ -42,7 +48,7 @@ export default function ProjectCard({
       className={[
         "group block",
         "rounded-none",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/60",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60",
       ].join(" ")}
     >
       {/* top media box */}
