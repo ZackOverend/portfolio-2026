@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants, easeOut } from "framer-motion";
-import ProjectCard from "@/app/components/home/projects/project-card";
+import ProjectCard from "@/app/components/home/project-section/project-card";
 
 const projects = [
   {
