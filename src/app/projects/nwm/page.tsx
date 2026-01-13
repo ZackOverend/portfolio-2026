@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import NoWasteMateNavigation from "./nav-section/nwm-nav";
-import NoWasteMateProjects from "./projects-section/nwm-projects";
-import NoWasteMateHero from "./hero-section/hero";
-import NoWasteMateBody from "./body-section/body";
+import NoWasteMateNavigation from "./sections/nav-section/page";
+import NoWasteMateProjects from "./sections/projects-section/page";
+import NoWasteMateHero from "./sections/hero-section/page";
+import NoWasteMateBody from "./sections/body-section/page";
 import DotGridParallax from "@/app/components/DotGridParallax";
+import { NoWasteMateConcepts } from "./sections/concepts-section/page";
 
 export default function NoWasteMatePage() {
   return (
@@ -18,7 +19,11 @@ export default function NoWasteMatePage() {
           <div className="py-32 ">
             <NoWasteMateHero />
             <NoWasteMateProjects />
-            <div className="relative my-24 h-px w-full bg-white/80" />
+            <div className="relative mt-24 mb-12 h-px w-full bg-white/80" />
+
+            <NoWasteMateConcepts />
+            <div className="relative my-12 h-px w-full bg-white/80" />
+
             <NoWasteMateBody />
           </div>
 
