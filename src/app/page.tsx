@@ -1,6 +1,7 @@
-import Hero from "@/app/components/home/hero-section/page";
+import HeroSection from "@/app/components/home/hero-section/page";
 import ProjectsSection from "./components/home/project-section/page";
 import DotGridParallax from "./components/DotGridParallax";
+import ContactSection from "./components/home/contact-section/page";
 
 export default function Home() {
   return (
@@ -12,8 +13,11 @@ export default function Home() {
         />
 
         <section id="hero">
-          <Hero />
+          <HeroSection />
+          <div className="relative mt-10 h-px w-full bg-white/80" />
           <ProjectsSection />
+          <div className="relative mt-10 h-px w-full bg-white/80" />
+          <ContactSection />
         </section>
       </main>
     </div>

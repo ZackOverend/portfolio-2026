@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Hero() {
+export default function HeroSection() {
   return (
     <div>
       <div className="relative w-full">
@@ -51,8 +51,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-
-        <div className="relative mt-10 h-px w-full bg-white/80" />
       </div>
     </div>
   );
