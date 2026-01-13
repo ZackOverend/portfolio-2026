@@ -1,17 +1,25 @@
 "use client";
 
+import { useLenisAnchor } from "@/app/hooks/useLenisAnchor";
 import Link from "next/link";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function ContactSection() {
-  const email = "zackaryoverend@gmail.com"; // change if needed
+  const email = "zack.overend@outlook.com"; // change if needed
+  const [copied, setCopied] = useState(false);
 
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
     } catch {
       // ignore
     }
   };
+
+  const scrollTo = useLenisAnchor();
 
   return (
     <section id="contact" className="w-full py-24">
@@ -61,7 +69,7 @@ export default function ContactSection() {
 
               <div className="mt-4 grid gap-3">
                 <Link
-                  href="https://github.com/"
+                  href="https://github.com/ZackOverend"
                   className="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80 transition hover:bg-white/10"
                   target="_blank"
                 >
@@ -69,7 +77,7 @@ export default function ContactSection() {
                 </Link>
 
                 <Link
-                  href="https://www.linkedin.com/"
+                  href="https://www.linkedin.com/in/zackaryoverend/"
                   className="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80 transition hover:bg-white/10"
                   target="_blank"
                 >
@@ -95,11 +103,27 @@ export default function ContactSection() {
         {/* tiny footer line */}
         <div className="mt-8 flex items-center justify-between text-xs text-white/40">
           <span>© {new Date().getFullYear()} Zackary Overend</span>
-          <a href="#top" className="hover:text-white/70 transition">
+          <button
+            onClick={() => scrollTo("#top")}
+            className="text-xs text-white/40 hover:text-white/70 transition"
+          >
             Back to top ↑
-          </a>
+          </button>
         </div>
       </div>
+      <AnimatePresence>
+        {copied && (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="fixed bottom-6 right-6 z-50 rounded-md border border-white/15 bg-black/80 px-4 py-2 text-sm text-white/90 backdrop-blur"
+          >
+            Email copied to clipboard
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

@@ -1,6 +1,10 @@
+"use client";
+import { useLenisAnchor } from "@/app/hooks/useLenisAnchor";
 import Image from "next/image";
 
 export default function HeroSection() {
+  const scrollTo = useLenisAnchor();
+
   return (
     <div>
       <div className="relative w-full">
@@ -26,12 +30,12 @@ export default function HeroSection() {
             </p>
 
             <div className="mt-8">
-              <a
-                href="#contact"
+              <button
+                onClick={() => scrollTo("#contact")}
                 className="inline-flex items-center justify-center rounded-md border border-white/20 bg-white/0 px-4 py-2 text-sm text-white/90 hover:bg-white/10 transition"
               >
                 Contact Me
-              </a>
+              </button>
             </div>
           </div>
 
