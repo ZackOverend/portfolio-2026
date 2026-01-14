@@ -1,11 +1,11 @@
 "use client";
 
-import NoWasteMateNavigation from "./sections/nav-section/page";
-import NoWasteMateProjects from "./sections/projects-section/page";
-import NoWasteMateHero from "./sections/hero-section/page";
-import NoWasteMateBody from "./sections/body-section/page";
+import NoWasteMateNavigation from "@/app/projects/nwm/sections/nav-section/nav-section";
+import NoWasteMateProjects from "@/app/projects/nwm/sections/projects-section/projects-section";
+import NoWasteMateHero from "@/app/projects/nwm/sections/hero-section/hero-section";
+import NoWasteMateBody from "@/app/projects/nwm/sections/body-section/body-section";
 import DotGridParallax from "@/app/components/DotGridParallax";
-import { NoWasteMateConcepts } from "./sections/concepts-section/page";
+import { NoWasteMateConcepts } from "@/app/projects/nwm/sections/concepts-section/concepts-section";
 import { useLenisAnchor } from "@/app/hooks/useLenisAnchor";
 
 export default function NoWasteMatePage() {
