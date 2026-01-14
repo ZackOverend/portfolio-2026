@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import BodyDesign from "@/app/projects/nwm/sections/body-section/body-design";
+import BodyDocumentation from "./body-documentation";
 
 export default function NoWasteMateBody() {
   return (
@@ -13,6 +14,7 @@ export default function NoWasteMateBody() {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <BodyDesign />
+      <BodyDocumentation />
     </motion.div>
   );
 }

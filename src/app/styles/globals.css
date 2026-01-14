@@ -112,3 +112,7 @@ body {
 .h2 {
   @apply text-2xl leading-tight tracking-tight sm:text-3xl;
 }
+
+.p-body {
+  @apply leading-relaxed tracking-wide;
+}

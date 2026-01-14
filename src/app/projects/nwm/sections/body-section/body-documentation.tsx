@@ -1,0 +1,81 @@
+import Gallery, { GalleryItem } from "../../gallery";
+import { useState } from "react";
+
+const items: GalleryItem[] = [
+  {
+    src: "/nwm/product-view.png",
+    title: "Most Recent Developed UI Iteration",
+  },
+  {
+    src: "/nwm/product-view-wireframe.png",
+    title: "Early UI Wireframe",
+  },
+  {
+    src: "/nwm/02-swiftui.png",
+    title: "XCode Workspace Using SwiftUI",
+  },
+];
+
+export default function BodyDocumentation() {
+  const [index, setIndex] = useState(0);
+  return (
+    <>
+      <div className="mt-10 flex">
+        <div className="space-y-6 max-w-4xl ">
+          <h2 className="h2">Jira Usage and Documentation</h2>
+
+          <p className="p-body">
+            Throughout the project, Jira was used as the primary tool for task
+            management and documentation in order to maintain structure and
+            accountability within the team. By requiring all features, bug
+            fixes, and design tasks to be tracked in Jira, we were able to
+            clearly define responsibilities, monitor progress, and ensure that
+            work aligned with sprint goals. User stories, subtasks, and status
+            updates were consistently documented, which helped support
+            communication during development and made it easier to reflect on
+            completed and pending work. While this level of structure initially
+            felt restrictive, it ultimately improved organization, transparency,
+            and collaboration across the project.
+          </p>
+
+          <p className="p-body">
+            Confluence proved to be super useful and was used as a central place
+            to document design decisions, technical considerations, and overall
+            project progress. Having a shared space for written documentation
+            made it easier to stay aligned as a team and ensured that important
+            information was not lost across conversations or tools. It also
+            allowed us to clearly communicate ideas during reviews and the
+            project defense, since diagrams, explanations, and updates were all
+            accessible in one place. Over time, Confluence became an important
+            reference point that supported both collaboration and long-term
+            understanding of the project.
+          </p>
+        </div>
+
+        {/* RIGHT — visual */}
+      </div>
+      <div className="mt-10 flex">
+        <div className="space-y-6 max-w-4xl ">
+          <h2 className="h2">Future Iterations</h2>
+
+          <p className="p-body">
+            Looking ahead, future iterations of will be heavily informed by the
+            feedback received during the project defense, where many specific
+            and constructive improvement suggestions were shared. This feedback
+            highlighted opportunities to further refine navigation clarity,
+            improve visual indicators for expiring items, and reduce friction in
+            everyday interactions. While the current design establishes a strong
+            foundation, these insights provide clear direction for meaningful
+            refinement and polish. Continued iteration will focus on
+            accessibility, simplicity, and responsiveness to real user needs.
+            The goal is to fully complete and release NoWasteMate as a finished
+            application by December 2026.
+          </p>
+        </div>
+      </div>
+      <div className="flex aspect-video mt-12 ">
+        <Gallery items={items} index={index} setIndex={setIndex} />
+      </div>
+    </>
+  );
+}
