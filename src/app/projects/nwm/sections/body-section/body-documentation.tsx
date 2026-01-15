@@ -4,16 +4,16 @@ import { useState } from "react";
 
 const items: GalleryItem[] = [
   {
-    src: "/nwm/product-view.png",
+    src: "/nwm/jira.png",
     title: "Most Recent Developed UI Iteration",
   },
   {
-    src: "/nwm/product-view-wireframe.png",
-    title: "Early UI Wireframe",
+    src: "/nwm/confluence.png",
+    title: "Confluence Documentation",
   },
   {
-    src: "/nwm/02-swiftui.png",
-    title: "XCode Workspace Using SwiftUI",
+    src: "/nwm/auth-diagram.png",
+    title: "Diagram of System Architecture",
   },
 ];
 
@@ -90,7 +90,11 @@ export default function BodyDocumentation() {
         className="flex aspect-video mt-12"
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
+        viewport={{
+          once: true,
+          amount: 0.4,
+          margin: "0px 0px 200px 0px",
+        }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <Gallery items={items} index={index} setIndex={setIndex} />

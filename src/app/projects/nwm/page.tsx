@@ -19,7 +19,7 @@ export default function NoWasteMatePage() {
       <div className="relative mx-auto max-w-6xl px-8">
         <div className="grid gap-10 sm:grid-cols-[minmax(0,1fr)_auto]">
           {/* CONTENT COLUMN */}
-          <div className="py-32 ">
+          <div className="pt-32 pb-8">
             <NoWasteMateHero />
             <NoWasteMateProjects />
             <Divider />
@@ -27,7 +27,7 @@ export default function NoWasteMatePage() {
             <Divider />
 
             <NoWasteMateBody />
-            <div className="mt-12 ml-auto">
+            <div className="mt-10 flex justify-end">
               <button
                 onClick={() => scrollTo("top")}
                 className="text-xs text-white/40 hover:text-white/70 transition"

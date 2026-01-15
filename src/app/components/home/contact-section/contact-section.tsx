@@ -31,7 +31,7 @@ export default function ContactSection() {
               <p className="text-xs tracking-widest text-white/50">CONTACT</p>
 
               <h2 className="mt-3 text-4xl font-light tracking-tight text-white/90 sm:text-5xl">
-                Let’s build something clean and useful.
+                Let’s turn ideas into clean, usable products.
               </h2>
 
               <p className="mt-5 text-sm leading-6 text-white/65">
