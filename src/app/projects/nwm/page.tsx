@@ -7,6 +7,7 @@ import NoWasteMateBody from "@/app/projects/nwm/sections/body-section/body-secti
 import DotGridParallax from "@/app/components/DotGridParallax";
 import { NoWasteMateConcepts } from "@/app/projects/nwm/sections/concepts-section/concepts-section";
 import { useLenisAnchor } from "@/app/hooks/useLenisAnchor";
+import Divider from "@/app/projects/components/divider";
 
 export default function NoWasteMatePage() {
   const scrollTo = useLenisAnchor();
@@ -15,16 +16,15 @@ export default function NoWasteMatePage() {
     <main className="bg-nwm min-h-screen" id="#top">
       <DotGridParallax className="dot-grid opacity-80" strength={0.2} />
 
-      <div className="relative mx-auto max-w-6xl px-8 py-8">
+      <div className="relative mx-auto max-w-6xl px-8">
         <div className="grid gap-10 sm:grid-cols-[minmax(0,1fr)_auto]">
           {/* CONTENT COLUMN */}
           <div className="py-32 ">
             <NoWasteMateHero />
             <NoWasteMateProjects />
-            <div className="relative mt-24 mb-12 h-px w-full bg-white/80" />
-
+            <Divider />
             <NoWasteMateConcepts />
-            <div className="relative my-12 h-px w-full bg-white/80" />
+            <Divider />
 
             <NoWasteMateBody />
             <div className="mt-12 ml-auto">

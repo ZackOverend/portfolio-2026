@@ -1,7 +1,7 @@
-import HeroSection from "@/app/components/home/hero-section/page";
-import ProjectsSection from "./components/home/project-section/page";
+import HeroSection from "@/app/components/home/hero-section/hero-section";
+import ProjectsSection from "./components/home/project-section/project-section";
 import DotGridParallax from "./components/DotGridParallax";
-import ContactSection from "./components/home/contact-section/page";
+import ContactSection from "./components/home/contact-section/contact-section";
 
 export default function Home() {
   return (

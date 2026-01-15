@@ -1,4 +1,5 @@
-import Gallery, { GalleryItem } from "../../gallery";
+import { motion } from "framer-motion";
+import Gallery, { GalleryItem } from "../../../components/gallery";
 import { useState } from "react";
 
 const items: GalleryItem[] = [
@@ -21,7 +22,13 @@ export default function BodyDocumentation() {
   return (
     <>
       <div className="mt-10 flex">
-        <div className="space-y-6 max-w-4xl ">
+        <motion.div
+          className="space-y-6 max-w-4xl "
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <h2 className="h2">Jira Usage and Documentation</h2>
 
           <p className="p-body">
@@ -50,11 +57,17 @@ export default function BodyDocumentation() {
             reference point that supported both collaboration and long-term
             understanding of the project.
           </p>
-        </div>
+        </motion.div>
 
         {/* RIGHT — visual */}
       </div>
-      <div className="mt-10 flex">
+      <motion.div
+        className="mt-10 flex"
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
         <div className="space-y-6 max-w-4xl ">
           <h2 className="h2">Future Iterations</h2>
 
@@ -72,10 +85,16 @@ export default function BodyDocumentation() {
             application by December 2026.
           </p>
         </div>
-      </div>
-      <div className="flex aspect-video mt-12 ">
+      </motion.div>
+      <motion.div
+        className="flex aspect-video mt-12"
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
         <Gallery items={items} index={index} setIndex={setIndex} />
-      </div>
+      </motion.div>
     </>
   );
 }

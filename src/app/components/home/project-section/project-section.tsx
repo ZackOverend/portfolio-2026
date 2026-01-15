@@ -6,28 +6,34 @@ import ProjectCard from "@/app/components/home/project-section/project-card";
 const projects = [
   {
     title: "NoWasteMate App",
-    tech: "SwiftUI  Python  TensorFlow  Firebase",
+    summary: "iOS Food Waste Manager",
+    tags: ["SwiftUI", "FastAPI", "Firebase", "TensorFlow"],
     device: "mobile" as const,
     href: "/projects/nwm",
     iconSrc: "/thumbnails/nowastemate.svg",
   },
   {
     title: "Image-In website",
-    tech: "C#  Asp.NET  Next.JS  React  TypeScript",
+    summary: "Drag & Drop Images for Content Analysis Website",
+    tags: ["Next.js", "React", "TypeScript", "C# API"],
     device: "desktop" as const,
     href: "/imagein",
     iconSrc: "/thumbnails/image-in.svg",
   },
   {
     title: "INDStudio 51 Website",
-    tech: "HTML  Next.JS  React  TypeScript",
+    summary: "Business site rebuild with a clean, responsive layout",
+    tags: ["Next.js", "React", "TypeScript", "UI/UX"],
     device: "desktop" as const,
+    href: "/indstudio51",
     iconSrc: "/thumbnails/indstudio51.svg",
   },
   {
     title: "Nova Weather App",
-    tech: "Flutter  Python  Custom API  Microsoft Azure",
+    summary: "Weather app with custom API + cloud integration",
+    tags: ["Flutter", "Python", "Azure", "API"],
     device: "mobile" as const,
+    href: "/novaweather",
     iconSrc: "/thumbnails/novaweather.svg",
   },
 ];
@@ -62,13 +68,18 @@ export default function ProjectsSection() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{
+        once: true,
+        amount: 0.2,
+        margin: "0px 0px 200px 0px", // trigger ~200px earlier
+      }}
     >
       {projects.map((p) => (
         <motion.div key={p.title} variants={item}>
           <ProjectCard
             title={p.title}
-            tech={p.tech}
+            summary={p.summary}
+            tags={p.tags}
             device={p.device}
             href={p.href}
             iconSrc={p.iconSrc}
