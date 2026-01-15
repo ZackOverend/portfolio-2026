@@ -8,7 +8,7 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <main className="mx-auto w-full max-w-7xl px-6 space-y-24">
         <DotGridParallax
-          className="top-1/6 absolute inset-0 dot-grid opacity-80"
+          className="top-36 absolute inset-0 dot-grid opacity-80"
           strength={0.15}
         />
 
