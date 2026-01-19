@@ -24,7 +24,18 @@ function ActionButton({
 
 export default function NoWasteMateNavigation() {
   return (
-    <div className="sticky z-50 flex gap-6">
+    <div
+      className="z-50 flex gap-6 rounded-xl
+        px-3 py-2
+        backdrop-blur
+        bg-white/10
+        border border-white/15
+        shadow-lg
+        sm:backdrop-blur-3xl
+        sm:bg-transparent
+        sm:border-transparent
+        sm:shadow-none"
+    >
       <ActionButton label="Go Back" href="/">
         {/* back icon */}
         <Image src={"/go-back.svg"} alt={"apple logo"} width={24} height={24} />

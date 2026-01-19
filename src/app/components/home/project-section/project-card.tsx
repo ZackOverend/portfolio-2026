@@ -87,7 +87,7 @@ export default function ProjectCard({
       {/* Meta */}
       <div className="mt-4 flex items-start justify-between gap-6">
         <div className="min-w-0">
-          <h3 className="truncate text-lg text-white/90">{title}</h3>
+          <h3 className="text-lg text-white/90">{title}</h3>
           <p className="mt-1 text-sm text-white/55">{summary}</p>
 
           <div className="mt-3 flex flex-wrap gap-2">

@@ -13,7 +13,7 @@ export default function NoWasteMatePage() {
   const scrollTo = useLenisAnchor();
 
   return (
-    <main className="bg-nwm min-h-screen" id="#top">
+    <main className="bg-nwm min-h-screen" id="top">
       <DotGridParallax className="dot-grid opacity-80" strength={0.2} />
 
       <div className="relative mx-auto max-w-6xl px-8">
@@ -38,7 +38,7 @@ export default function NoWasteMatePage() {
           </div>
 
           {/* NAVIGATION COLUMN */}
-          <div className="fixed sm:sticky top-8 sm:self-start self-end">
+          <div className="fixed top-8 right-8 sm:sticky sm:top-8 sm:right-auto sm:self-start flex justify-end sm:ç">
             <NoWasteMateNavigation />
           </div>
         </div>

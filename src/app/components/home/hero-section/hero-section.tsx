@@ -41,7 +41,7 @@ export default function HeroSection() {
 
           {/* right column (image panel) */}
           <div className="flex items-center justify-center lg:justify-end">
-            <div className="relative -top-24 w-full max-w-md overflow-hidden border border-white/10 bg-secondary">
+            <div className="relative lg:-top-24 w-full max-w-md overflow-hidden border border-white/10 bg-secondary">
               {/* image */}
               <div className="relative aspect-2/3 w-full">
                 <Image
