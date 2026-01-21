@@ -17,7 +17,7 @@ const projects = [
     summary: "Drag & Drop Images for Content Analysis Website",
     tags: ["Next.js", "React", "TypeScript", "C# API"],
     device: "desktop" as const,
-    href: "/imagein",
+    href: "/projects/components/sections",
     iconSrc: "/thumbnails/image-in.svg",
   },
   {

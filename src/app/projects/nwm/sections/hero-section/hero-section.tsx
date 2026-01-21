@@ -11,7 +11,7 @@ export default function NoWasteMateHero() {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div>
-        <h1 className="h1">No Waste Mate</h1>
+        <h1 className="h1">No Waste Mate iOS Application</h1>
 
         <div className="py-16 max-w-xl space-y-6 font-mono text-sm leading-6 text-white/75">
           <p>

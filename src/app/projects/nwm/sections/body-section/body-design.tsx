@@ -1,4 +1,4 @@
-import Gallery, { GalleryItem } from "../../../components/gallery";
+import Gallery, { GalleryItem } from "@/app/projects/components/gallery";
 import { useState } from "react";
 
 const items: GalleryItem[] = [
