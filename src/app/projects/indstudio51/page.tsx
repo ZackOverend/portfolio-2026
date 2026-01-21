@@ -10,13 +10,12 @@ import ProjectNav from "@/app/projects/components/sections/nav/nav";
 import { ProjectConcepts } from "@/app/projects/components/sections/concepts/concepts";
 import ProjectBody from "@/app/projects/components/sections/body/body";
 
-import nwm from "@/app/projects/data/nwm/nwm.json"; // <- swap per page
+import indstudio51 from "@/app/projects/indstudio51/indstudio51.json";
 
 export default function ProjectsPage() {
   const scrollTo = useLenisAnchor();
 
-  // swap nwm for any other project data
-  const data: any = nwm;
+  const data: any = indstudio51;
 
   return (
     <main className={`${data.themeClass} min-h-screen`} id="top">
@@ -35,7 +34,7 @@ export default function ProjectsPage() {
             <ProjectConcepts sections={data.concepts} />
             <Divider />
 
-            <ProjectBody />
+            <ProjectBody body={data.body} />
             <div className="mt-10 flex justify-end">
               <button
                 onClick={() => scrollTo("top")}
@@ -48,7 +47,7 @@ export default function ProjectsPage() {
 
           {/* NAV COLUMN */}
           <div className="fixed right-8 top-8 flex justify-end sm:sticky sm:right-auto sm:self-start">
-            <ProjectNav externalUrl={data.nav} />
+            <ProjectNav externalUrl={data.nav?.externalUrl} />
           </div>
         </div>
       </div>

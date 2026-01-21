@@ -23,7 +23,6 @@ function ActionButton({
 }
 
 export default function ProjectNav({ externalUrl }: { externalUrl?: string }) {
-  if (!externalUrl) return null;
   return (
     <div
       className="z-50 flex gap-6 rounded-xl
@@ -42,14 +41,16 @@ export default function ProjectNav({ externalUrl }: { externalUrl?: string }) {
         <Image src={"/go-back.svg"} alt={"apple logo"} width={24} height={24} />
       </ActionButton>
 
-      <ActionButton label="View Project" href={externalUrl}>
-        <Image
-          src="/external-link.svg"
-          alt="External link icon"
-          width={24}
-          height={24}
-        />
-      </ActionButton>
+      {externalUrl ? (
+        <ActionButton label="View Project" href={externalUrl}>
+          <Image
+            src="/external-link.svg"
+            alt="External link icon"
+            width={24}
+            height={24}
+          />
+        </ActionButton>
+      ) : null}
     </div>
   );
 }

@@ -17,7 +17,7 @@ const projects = [
     summary: "Drag & Drop Images for Content Analysis Website",
     tags: ["Next.js", "React", "TypeScript", "C# API"],
     device: "desktop" as const,
-    href: "/projects/components/sections",
+    href: "/projects/image-in",
     iconSrc: "/thumbnails/image-in.svg",
   },
   {
@@ -25,7 +25,7 @@ const projects = [
     summary: "Business site rebuild with a clean, responsive layout",
     tags: ["Next.js", "React", "TypeScript", "UI/UX"],
     device: "desktop" as const,
-    href: "/indstudio51",
+    href: "/projects/indstudio51",
     iconSrc: "/thumbnails/indstudio51.svg",
   },
   {
@@ -33,7 +33,7 @@ const projects = [
     summary: "Weather app with custom API + cloud integration",
     tags: ["Flutter", "Python", "Azure", "API"],
     device: "mobile" as const,
-    href: "/novaweather",
+    href: "/projects/nova-weather",
     iconSrc: "/thumbnails/novaweather.svg",
   },
 ];

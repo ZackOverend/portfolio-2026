@@ -1,0 +1,126 @@
+{
+  "themeClass": "bg-nwm",
+  "dotGridClass": "dot-grid opacity-80",
+
+  "hero": {
+    "title": "Image-In Web Application",
+    "paragraphs": [
+      "NoWasteMate is a capstone thesis project developed collaboratively by a three-person team, where I led key aspects of the user experience and core application architecture.",
+      "While the project was built as a team, my role focused on shaping the system architecture and the overall user experience, ensuring the app was intuitive, cohesive, and well-structured as it grew."
+    ]
+  },
+
+  "nav": {},
+
+  "features": [
+    {
+      "icon": "/projects-icons/apple.svg",
+      "text": "Developed for iPhone and iPad Devices",
+      "size": 32
+    },
+    {
+      "icon": "/projects-icons/swift.svg",
+      "text": "Native SwiftUI-driven interface",
+      "size": 32
+    },
+    {
+      "icon": "/projects-icons/python.svg",
+      "text": "FastAPI Python-Powered Backend",
+      "size": 32
+    },
+    {
+      "icon": "/projects-icons/api.svg",
+      "text": "API-Driven Data Flow with Barcode Scanning",
+      "size": 32
+    },
+    {
+      "icon": "/projects-icons/firebase.svg",
+      "text": "Token-based Firebase Authentication & Sync",
+      "size": 32
+    }
+  ],
+
+  "concepts": [
+    {
+      "label": "KEY CONCEPTS LEARNED",
+      "items": [
+        "Designing scalable client–server architectures with clear separation of concerns.",
+        "Button placement and navigation depth impact how quickly users complete daily tasks.",
+        "Figma iteration turned abstract ideas into testable interface flows.",
+        "Enforced Jira usage clarified ownership and prevented missed work.",
+        "Centralized Confluence documentation reduced review and handoff friction.",
+        "Firebase Authentication secured user access and database operations.",
+        "Token-based authentication validated client requests to backend services.",
+        "Swagger streamlined API testing and endpoint validation.",
+        "A layered Python API structure supported scalable development."
+      ]
+    }
+  ],
+
+  "body": [
+    {
+      "id": "design",
+      "kind": "twoColumn",
+      "title": "Design Development & Process",
+      "paragraphs": [
+        "Over the course of a three-month semester, I worked closely with my group members, who are also friends, to shape the logo and overall design language for NoWasteMate. Design has always been something I naturally gravitate toward, and of the three of us, I had the most hands-on experience with Figma, which allowed me to take the lead in turning early ideas into tangible visuals.",
+        "One of my main focuses during the design process was creating an experience that felt accessible and effortless to use. Since users are expected to log their food items on a daily basis, it was important to minimize the number of steps required and to automate details wherever possible."
+      ],
+      "gallery": {
+        "items": [
+          {
+            "src": "/nwm/product-view.png",
+            "title": "Most Recent Developed UI Iteration"
+          },
+          {
+            "src": "/nwm/product-view-wireframe.png",
+            "title": "Early UI Wireframe"
+          },
+          {
+            "src": "/nwm/02-swiftui.png",
+            "title": "XCode Workspace Using SwiftUI"
+          }
+        ]
+      },
+      "layout": {
+        "rightWidth": 420
+      }
+    },
+
+    {
+      "id": "documentation",
+      "kind": "richText",
+      "title": "Jira Usage and Documentation",
+      "paragraphs": [
+        "Throughout the project, Jira was used as the primary tool for task management and documentation in order to maintain structure and accountability within the team. By requiring all features, bug fixes, and design tasks to be tracked in Jira, we were able to clearly define responsibilities, monitor progress, and ensure that work aligned with sprint goals. User stories, subtasks, and status updates were consistently documented, which helped support communication during development and made it easier to reflect on completed and pending work. While this level of structure initially felt restrictive, it ultimately improved organization, transparency, and collaboration across the project.",
+        "Confluence proved to be super useful and was used as a central place to document design decisions, technical considerations, and overall project progress. Having a shared space for written documentation made it easier to stay aligned as a team and ensured that important information was not lost across conversations or tools. It also allowed us to clearly communicate ideas during reviews and the project defense, since diagrams, explanations, and updates were all accessible in one place. Over time, Confluence became an important reference point that supported both collaboration and long-term understanding of the project."
+      ]
+    },
+
+    {
+      "id": "future",
+      "kind": "richText",
+      "title": "Future Iterations",
+      "paragraphs": [
+        "Looking ahead, future iterations of will be heavily informed by the feedback received during the project defense, where many specific and constructive improvement suggestions were shared. This feedback highlighted opportunities to further refine navigation clarity, improve visual indicators for expiring items, and reduce friction in everyday interactions. While the current design establishes a strong foundation, these insights provide clear direction for meaningful refinement and polish. Continued iteration will focus on accessibility, simplicity, and responsiveness to real user needs. The goal is to fully complete and release NoWasteMate as a finished application by December 2026."
+      ]
+    },
+
+    {
+      "id": "docs-gallery",
+      "kind": "gallery",
+      "title": "Documentation Methods",
+      "items": [
+        { "src": "/nwm/jira.png", "title": "Jira Board + Tickets" },
+        { "src": "/nwm/confluence.png", "title": "Confluence Documentation" },
+        {
+          "src": "/nwm/auth-diagram.png",
+          "title": "Diagram of System Architecture"
+        }
+      ],
+      "motion": {
+        "viewportMargin": "0px 0px 200px 0px"
+      }
+    }
+  ]
+}

@@ -1,23 +1,98 @@
 "use client";
 
 import { motion } from "framer-motion";
-import BodyDesign from "@/app/projects/components/sections/body/body-design";
-import BodyDocumentation from "@/app/projects/components/sections/body/body-documentation";
+import Gallery from "@/app/projects/components/gallery";
+import { useState } from "react";
 
-export default function ProjectBody() {
+export default function ProjectBody({ body }: { body: any[] }) {
   return (
-    <>
-      <motion.div
-        className="mt-20"
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-      >
-        <BodyDesign />
-      </motion.div>
+    <div className="space-y-16">
+      {body.map((section) => (
+        <Section key={section.id} section={section} />
+      ))}
+    </div>
+  );
+}
 
-      <BodyDocumentation />
-    </>
+function Section({ section }: { section: any }) {
+  if (section.kind === "twoColumn") return <TwoColumn section={section} />;
+  if (section.kind === "richText") return <RichText section={section} />;
+  if (section.kind === "gallery")
+    return <StandaloneGallery section={section} />;
+  return null;
+}
+
+function TwoColumn({ section }: { section: any }) {
+  const [index, setIndex] = useState(0);
+
+  return (
+    <motion.div
+      className={`mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_${
+        section.layout?.rightWidth ?? 420
+      }px]`}
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
+      <div className="space-y-4">
+        <h2 className="h2">{section.title}</h2>
+        {section.paragraphs?.map((p: string, i: number) => (
+          <p key={i} className="p-body">
+            {p}
+          </p>
+        ))}
+      </div>
+
+      <div className="min-h-128 lg:min-h-64 h-full">
+        <Gallery
+          items={section.gallery.items}
+          index={index}
+          setIndex={setIndex}
+        />
+      </div>
+    </motion.div>
+  );
+}
+
+function RichText({ section }: { section: any }) {
+  return (
+    <motion.div
+      className="space-y-6 max-w-4xl"
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
+      <h2 className="h2">{section.title}</h2>
+      {section.paragraphs?.map((p: string, i: number) => (
+        <p key={i} className="p-body">
+          {p}
+        </p>
+      ))}
+    </motion.div>
+  );
+}
+
+function StandaloneGallery({ section }: { section: any }) {
+  const [index, setIndex] = useState(0);
+
+  return (
+    <motion.div
+      className="mt-12"
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{
+        once: true,
+        amount: 0.4,
+        margin: section.motion?.viewportMargin ?? "0px 0px 0px 0px",
+      }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
+      {section.title ? <h2 className="h2 mb-6">{section.title}</h2> : null}
+      <div className="aspect-video">
+        <Gallery items={section.items} index={index} setIndex={setIndex} />
+      </div>
+    </motion.div>
   );
 }
