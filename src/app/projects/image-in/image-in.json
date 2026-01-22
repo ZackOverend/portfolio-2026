@@ -46,83 +46,56 @@
     {
       "label": "KEY CONCEPTS LEARNED",
       "items": [
-        "Designing scalable client–server architectures with clear separation of concerns.",
-        "Button placement and navigation depth impact how quickly users complete daily tasks.",
-        "Figma iteration turned abstract ideas into testable interface flows.",
-        "Enforced Jira usage clarified ownership and prevented missed work.",
-        "Centralized Confluence documentation reduced review and handoff friction.",
-        "Firebase Authentication secured user access and database operations.",
-        "Token-based authentication validated client requests to backend services.",
-        "Swagger streamlined API testing and endpoint validation.",
-        "A layered Python API structure supported scalable development."
+        "Drag-and-drop UX requires careful event and state handling.",
+        "API latency directly affects perceived app quality.",
+        "Frontend–backend contracts need to be defined early.",
+        "Error handling is as important as the happy path.",
+        "File uploads expose edge cases in validation and security.",
+        "Clear loading states improve usability and trust.",
+        "Simple APIs are easier to evolve than complex ones."
       ]
     }
   ],
 
   "body": [
     {
-      "id": "design",
-      "kind": "twoColumn",
-      "title": "Design Development & Process",
-      "paragraphs": [
-        "Over the course of a three-month semester, I worked closely with my group members, who are also friends, to shape the logo and overall design language for NoWasteMate. Design has always been something I naturally gravitate toward, and of the three of us, I had the most hands-on experience with Figma, which allowed me to take the lead in turning early ideas into tangible visuals.",
-        "One of my main focuses during the design process was creating an experience that felt accessible and effortless to use. Since users are expected to log their food items on a daily basis, it was important to minimize the number of steps required and to automate details wherever possible."
-      ],
-      "gallery": {
-        "items": [
-          {
-            "src": "/nwm/product-view.png",
-            "title": "Most Recent Developed UI Iteration"
-          },
-          {
-            "src": "/nwm/product-view-wireframe.png",
-            "title": "Early UI Wireframe"
-          },
-          {
-            "src": "/nwm/02-swiftui.png",
-            "title": "XCode Workspace Using SwiftUI"
-          }
-        ]
-      },
-      "layout": {
-        "rightWidth": 420
-      }
-    },
-
-    {
-      "id": "documentation",
+      "id": "concept",
       "kind": "richText",
-      "title": "Jira Usage and Documentation",
+      "title": "Product Idea & Problem Framing",
       "paragraphs": [
-        "Throughout the project, Jira was used as the primary tool for task management and documentation in order to maintain structure and accountability within the team. By requiring all features, bug fixes, and design tasks to be tracked in Jira, we were able to clearly define responsibilities, monitor progress, and ensure that work aligned with sprint goals. User stories, subtasks, and status updates were consistently documented, which helped support communication during development and made it easier to reflect on completed and pending work. While this level of structure initially felt restrictive, it ultimately improved organization, transparency, and collaboration across the project.",
-        "Confluence proved to be super useful and was used as a central place to document design decisions, technical considerations, and overall project progress. Having a shared space for written documentation made it easier to stay aligned as a team and ensured that important information was not lost across conversations or tools. It also allowed us to clearly communicate ideas during reviews and the project defense, since diagrams, explanations, and updates were all accessible in one place. Over time, Confluence became an important reference point that supported both collaboration and long-term understanding of the project."
+        "Image-In started as an exploration into how image analysis and machine learning could be exposed through a simple, accessible web interface. The core idea was to allow users to drag and drop an image and receive structured insights without needing to understand anything about how the analysis worked behind the scenes. My goal was to design a workflow that felt instant and frictionless. From the moment a user landed on the page, it needed to be obvious what the product did and how to use it. This led to a highly minimal interface with a single primary interaction: upload an image and view the generated output. The simplicity of the UI was deliberate, allowing the technical complexity of the backend to remain invisible to the user."
       ]
     },
-
     {
-      "id": "future",
-      "kind": "richText",
-      "title": "Future Iterations",
-      "paragraphs": [
-        "Looking ahead, future iterations of will be heavily informed by the feedback received during the project defense, where many specific and constructive improvement suggestions were shared. This feedback highlighted opportunities to further refine navigation clarity, improve visual indicators for expiring items, and reduce friction in everyday interactions. While the current design establishes a strong foundation, these insights provide clear direction for meaningful refinement and polish. Continued iteration will focus on accessibility, simplicity, and responsiveness to real user needs. The goal is to fully complete and release NoWasteMate as a finished application by December 2026."
-      ]
-    },
-
-    {
-      "id": "docs-gallery",
+      "id": "app-gallery",
       "kind": "gallery",
-      "title": "Documentation Methods",
       "items": [
-        { "src": "/nwm/jira.png", "title": "Jira Board + Tickets" },
-        { "src": "/nwm/confluence.png", "title": "Confluence Documentation" },
-        {
-          "src": "/nwm/auth-diagram.png",
-          "title": "Diagram of System Architecture"
-        }
+        { "src": "/image-in/image-1.png", "title": "Homepage of Application" },
+        { "src": "/image-in/image-2.png", "title": "Image Upload Interface" },
+        { "src": "/image-in/image-3.png", "title": "Early Mockup" }
       ],
       "motion": {
         "viewportMargin": "0px 0px 200px 0px"
       }
+    },
+    {
+      "id": "architecture",
+      "kind": "richText",
+      "title": "System Architecture & API Design",
+      "paragraphs": [
+        "The application was built around a clear client–server separation. The frontend, developed with Next.js and React, handled user interaction, file uploads, and result presentation. The backend, written in C#, exposed a REST API responsible for receiving image data, running analysis pipelines, and returning structured JSON responses.",
+        "Designing the API forced me to think carefully about data contracts, error handling, and request lifecycles. Each endpoint was built to be stateless and predictable, making the system easier to test and reason about. This project significantly deepened my understanding of how frontend and backend concerns intersect and how thoughtful API design can simplify both sides of an application."
+      ]
+    },
+
+    {
+      "id": "iteration",
+      "kind": "richText",
+      "title": "Iteration, UX Refinement, and Reliability",
+      "paragraphs": [
+        "Early versions of Image-In exposed too much technical detail to the user and required unnecessary steps to complete a single upload. Through iterative testing and self-critique, I simplified the flow down to its essentials and focused on making the upload-to-result transition feel smooth and immediate.",
+        "I also invested time into improving reliability and user feedback, adding loading states, basic validation, and clearer error messages. These refinements reinforced how much perceived quality depends on small UX details. The final result is a compact but expressive product that demonstrates how a complex technical system can be packaged into a simple, approachable user experience."
+      ]
     }
   ]
 }
