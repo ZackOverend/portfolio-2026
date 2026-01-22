@@ -7,13 +7,19 @@ function ActionButton({
   label,
   href,
   children,
+  target,
 }: {
   label: string;
   href: string;
   children: React.ReactNode;
+  target: string;
 }) {
   return (
-    <Link href={href} className="flex flex-col items-center gap-2">
+    <Link
+      href={href}
+      className="flex flex-col items-center gap-2"
+      target={target}
+    >
       <div className="grid h-12 w-12 place-items-center rounded-full bg-white text-black shadow-sm transition hover:scale-[1.03] hover:rotate-2">
         {children}
       </div>
@@ -36,13 +42,13 @@ export default function ProjectNav({ externalUrl }: { externalUrl?: string }) {
         sm:border-transparent
         sm:shadow-none"
     >
-      <ActionButton label="Go Back" href="/">
+      <ActionButton label="Go Back" href="/" target="">
         {/* back icon */}
         <Image src={"/go-back.svg"} alt={"apple logo"} width={24} height={24} />
       </ActionButton>
 
       {externalUrl ? (
-        <ActionButton label="View Project" href={externalUrl}>
+        <ActionButton label="View Project" href={externalUrl} target="_blank">
           <Image
             src="/external-link.svg"
             alt="External link icon"
