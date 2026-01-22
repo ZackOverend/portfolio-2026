@@ -5,12 +5,14 @@
   "hero": {
     "title": "Indesignn Studio 51 Client Website",
     "paragraphs": [
-      "NoWasteMate is a capstone thesis project developed collaboratively by a three-person team, where I led key aspects of the user experience and core application architecture.",
-      "While the project was built as a team, my role focused on shaping the system architecture and the overall user experience, ensuring the app was intuitive, cohesive, and well-structured as it grew."
+      "The InDesignnStudio51 Website is a modern portfolio and business website built to showcase a creative commercial real-estate studio’s services, aesthetic, and brand identity. The project focused on presenting work in a visually polished way while keeping navigation simple and content easy to explore.",
+      "I designed and developed the site with an emphasis on layout, visual hierarchy, and responsiveness across devices. The goal was to balance a strong creative look with practical usability, ensuring the website felt professional, approachable, and aligned with the studio’s design-focused brand."
     ]
   },
 
-  "nav": {},
+  "nav": {
+    "externalUrl": "https://ind51-website-zacks-projects-771ac82d.vercel.app/"
+  },
 
   "features": [
     {

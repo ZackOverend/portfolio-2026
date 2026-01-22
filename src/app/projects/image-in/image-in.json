@@ -5,12 +5,14 @@
   "hero": {
     "title": "Image-In Web Application",
     "paragraphs": [
-      "NoWasteMate is a capstone thesis project developed collaboratively by a three-person team, where I led key aspects of the user experience and core application architecture.",
-      "While the project was built as a team, my role focused on shaping the system architecture and the overall user experience, ensuring the app was intuitive, cohesive, and well-structured as it grew."
+      "Image-In is a lightweight web application built to make image analysis feel simple and developer-friendly. Users can drag and drop an image and receive a clean JSON response containing detected data, without needing to deal with complex setup or external tools. The goal was to keep the experience minimal and approachable while still delivering structured, machine-readable output.",
+      "I built Image-In as both a technical experiment and a design exercise, focusing on how to hide complexity behind an intuitive interface. The frontend uses React with Next.js and Tailwind CSS, while the backend handles image processing and structured response generation. A key focus of the project was keeping frontend interactions and backend logic tightly aligned to create a fast, predictable, and reliable user experience."
     ]
   },
 
-  "nav": {},
+  "nav": {
+    "externalUrl": "https://imagein-zackaryoverend.vercel.app/"
+  },
 
   "features": [
     {
