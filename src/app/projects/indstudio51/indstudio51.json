@@ -16,28 +16,28 @@
 
   "features": [
     {
-      "icon": "/projects-icons/apple.svg",
-      "text": "Developed for iPhone and iPad Devices",
+      "icon": "/projects-icons/internet.svg",
+      "text": "Developed for Mobile and Desktop Web Devices",
       "size": 32
     },
     {
-      "icon": "/projects-icons/swift.svg",
-      "text": "Native SwiftUI-driven interface",
+      "icon": "/projects-icons/react.svg",
+      "text": "Webpage Components Built Using React",
       "size": 32
     },
     {
-      "icon": "/projects-icons/python.svg",
-      "text": "FastAPI Python-Powered Backend",
+      "icon": "/projects-icons/tailwind.svg",
+      "text": "Interface Styled using Tailwind CSS",
       "size": 32
     },
     {
-      "icon": "/projects-icons/api.svg",
-      "text": "API-Driven Data Flow with Barcode Scanning",
+      "icon": "/projects-icons/nextjs.svg",
+      "text": "Hosted by Vercel, Uses Next.JS",
       "size": 32
     },
     {
-      "icon": "/projects-icons/firebase.svg",
-      "text": "Token-based Firebase Authentication & Sync",
+      "icon": "/projects-icons/mail.svg",
+      "text": "Email Contact Form Developed Using Resend",
       "size": 32
     }
   ],
