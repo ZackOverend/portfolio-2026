@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/mock-application-polaron/:path*",
-        destination: "https://polaron-demo-page.vercel.app/:path*",
+        destination: "https://zackoverend.com/mock-application-polaron/:path*",
       },
     ];
   },
