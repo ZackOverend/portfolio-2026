@@ -1,0 +1,101 @@
+{
+  "themeClass": "bg-resuhost",
+  "dotGridClass": "dot-grid opacity-80",
+
+  "hero": {
+    "title": "ResuHost Resume API",
+    "paragraphs": [
+      "ResuHost is a FastAPI-powered backend system for managing resume data and generating polished, print-ready PDF resumes using server-side HTML templating and WeasyPrint rendering.",
+      "Built as a personal tool to solve a real problem — keeping resume content consistent across applications — the project grew into a full REST API with AI-assisted tailoring, Docker deployment, and support for both local and cloud-hosted Postgres databases."
+    ]
+  },
+
+  "nav": {
+    "externalUrl": "https://resu-host-resume-frontend.vercel.app/"
+  },
+
+  "features": [
+    {
+      "icon": "/projects-icons/python.svg",
+      "text": "FastAPI Python REST Backend",
+      "size": 32
+    },
+    {
+      "icon": "/projects-icons/api.svg",
+      "text": "Full CRUD Across Seven Resource Types",
+      "size": 32
+    },
+    {
+      "icon": "/projects-icons/docker.svg",
+      "text": "Docker-Containerised Deployment",
+      "size": 32
+    },
+    {
+      "icon": "/projects-icons/desktop.svg",
+      "text": "PDF Generation via Jinja2 + WeasyPrint",
+      "size": 32
+    },
+    {
+      "icon": "/projects-icons/internet.svg",
+      "text": "Ollama AI Resume Content Tailoring",
+      "size": 32
+    }
+  ],
+
+  "concepts": [
+    {
+      "label": "KEY CONCEPTS LEARNED",
+      "items": [
+        "Structuring a FastAPI project with layered routers, schemas, and service modules for long-term maintainability.",
+        "Using SQLAlchemy ORM with Pydantic for validated, type-safe database interactions.",
+        "Rendering server-side HTML templates with Jinja2 and converting them to PDFs with WeasyPrint.",
+        "Designing a RESTful API surface that cleanly separates resource concerns across endpoints.",
+        "Integrating a locally-hosted LLM (Ollama) to intelligently rewrite resume content for specific job descriptions.",
+        "Containerising a multi-service app with Docker Compose, supporting both local Postgres and Supabase cloud.",
+        "Writing health check and debugging endpoints to support rapid local development."
+      ]
+    }
+  ],
+
+  "body": [
+    {
+      "id": "overview",
+      "kind": "richText",
+      "title": "Why I Built This",
+      "paragraphs": [
+        "Tailoring a resume for each job application is repetitive work — the content is largely the same, but bullets need rewording and sections need reordering. ResuHost started as a way to centralise all of my resume data in a structured database so that any version of my resume could be generated on demand rather than maintained as separate documents.",
+        "The project became a meaningful technical exercise in API design, templating, and containerisation. Building something I actually use day-to-day meant the requirements were grounded in real friction rather than hypothetical needs."
+      ]
+    },
+
+    {
+      "id": "architecture",
+      "kind": "richText",
+      "title": "API Design & Architecture",
+      "paragraphs": [
+        "The API is organised around seven resource categories: work experience, education, projects, activities, skills, resume snapshots, and a health endpoint. Each resource has its own router and schema definitions, keeping the codebase modular and easy to extend.",
+        "Pydantic models handle all request and response validation, while SQLAlchemy manages the ORM layer against a PostgreSQL database. The project supports both a locally-running Postgres instance and Supabase as a cloud-hosted alternative, controlled entirely through environment variables."
+      ]
+    },
+
+    {
+      "id": "pdf",
+      "kind": "richText",
+      "title": "PDF Generation Pipeline",
+      "paragraphs": [
+        "Generating a resume PDF involves rendering a Jinja2 HTML template populated with data fetched from the database, then passing the rendered HTML to WeasyPrint for conversion to a styled PDF document. Templates are kept separate from business logic, making it straightforward to swap in different resume layouts or styles without touching the API code.",
+        "This approach keeps PDF output deterministic and fully server-side — no browser dependencies, no headless Chromium, just a clean Python pipeline from data to document."
+      ]
+    },
+
+    {
+      "id": "ai",
+      "kind": "richText",
+      "title": "AI-Assisted Tailoring with Ollama",
+      "paragraphs": [
+        "One of the more interesting features is the integration with Ollama, which allows the API to rewrite resume bullet points to better match a provided job description. The endpoint accepts raw bullet text and a job posting excerpt, sends a structured prompt to a locally-hosted language model, and returns a set of rewritten alternatives.",
+        "Running Ollama locally keeps the feature self-contained with no external API costs or data privacy concerns. The integration is modular enough to swap the model or move to a hosted provider without touching the rest of the API."
+      ]
+    }
+  ]
+}

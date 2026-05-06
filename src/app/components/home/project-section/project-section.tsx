@@ -5,12 +5,28 @@ import ProjectCard from "@/app/components/home/project-section/project-card";
 
 const projects = [
   {
+    title: "ResuHost Resume API",
+    summary: "FastAPI backend for resume management and PDF generation",
+    tags: ["FastAPI", "Python", "PostgreSQL", "Docker"],
+    device: "desktop" as const,
+    href: "/projects/resuhost",
+    iconSrc: "/thumbnails/resuhost.svg",
+  },
+  {
     title: "NoWasteMate App",
     summary: "iOS Food Waste Manager",
     tags: ["SwiftUI", "FastAPI", "Firebase", "TensorFlow"],
     device: "mobile" as const,
     href: "/projects/nwm",
     iconSrc: "/thumbnails/nowastemate.svg",
+  },
+  {
+    title: "Nova Weather App",
+    summary: "Weather app with custom API + cloud integration",
+    tags: ["Flutter", "Python", "Azure", "API"],
+    device: "mobile" as const,
+    href: "/projects/nova-weather",
+    iconSrc: "/thumbnails/novaweather.svg",
   },
   {
     title: "Image-In website",
@@ -27,14 +43,6 @@ const projects = [
     device: "desktop" as const,
     href: "/projects/indstudio51",
     iconSrc: "/thumbnails/indstudio51.svg",
-  },
-  {
-    title: "Nova Weather App",
-    summary: "Weather app with custom API + cloud integration",
-    tags: ["Flutter", "Python", "Azure", "API"],
-    device: "mobile" as const,
-    href: "/projects/nova-weather",
-    iconSrc: "/thumbnails/novaweather.svg",
   },
 ];
 
@@ -64,7 +72,7 @@ const item: Variants = {
 export default function ProjectsSection() {
   return (
     <motion.div
-      className="m-24 grid grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-2"
+      className="mx-4 my-16 grid grid-cols-1 gap-x-10 gap-y-14 sm:mx-10 md:grid-cols-2 lg:mx-24"
       variants={container}
       initial="hidden"
       whileInView="show"

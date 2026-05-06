@@ -38,7 +38,20 @@
         rgba(255, 255, 255, 0.08),
         transparent 60%
       ),
-      linear-gradient(180deg, #523d71 0%, #566b98 100%);
+      linear-gradient(180deg, #4b596c 0%, #91add2 100%);
+  }
+  .bg-resuhost {
+    background: radial-gradient(
+        1200px 700px at 30% 10%,
+        rgba(255, 255, 255, 0.12),
+        transparent 55%
+      ),
+      radial-gradient(
+        900px 600px at 70% 30%,
+        rgba(255, 255, 255, 0.08),
+        transparent 60%
+      ),
+      linear-gradient(180deg, #5c4a7a 0%, #5a6aaa 55%, #6a8fc4 100%);
   }
   .bg-nwm {
     background: radial-gradient(
@@ -51,7 +64,7 @@
         rgba(255, 255, 255, 0.08),
         transparent 60%
       ),
-      linear-gradient(180deg, #4b596c 0%, #91add2 100%);
+      linear-gradient(180deg, #4a7a5e 0%, #6aaa8a 55%, #92cca8 100%);
   }
 }
 
