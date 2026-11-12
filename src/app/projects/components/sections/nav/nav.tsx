@@ -44,7 +44,7 @@ export default function ProjectNav({ externalUrl }: { externalUrl?: string }) {
     >
       <ActionButton label="Go Back" href="/" target="">
         {/* back icon */}
-        <Image src={"/go-back.svg"} alt={"apple logo"} width={24} height={24} />
+        <Image src={"/go-back.svg"} alt="Back arrow" width={24} height={24} />
       </ActionButton>
 
       {externalUrl ? (

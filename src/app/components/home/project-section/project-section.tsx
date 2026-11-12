@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants, easeOut } from "framer-motion";
+import { motion, type Variants, easeOut } from "motion/react";
 import ProjectCard from "@/app/components/home/project-section/project-card";
 
 const projects = [

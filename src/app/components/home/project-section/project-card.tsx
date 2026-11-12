@@ -1,7 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { motion } from "motion/react";
+
+const MotionLink = motion.create(Link);
 
 type Device = "mobile" | "desktop";
 
@@ -33,22 +36,21 @@ export default function ProjectCard({
   device = "desktop",
   iconSrc,
 }: ProjectCardProps) {
-  const Card = href ? motion.a : motion.div;
+  const animation = {
+    className: "group block",
+    initial: "rest",
+    whileHover: "hover",
+    whileTap: "tap",
+    variants: {
+      rest: { y: 0 },
+      hover: { y: -6 },
+      tap: { y: -2 },
+    },
+    transition: { duration: 0.18, ease: "easeOut" as const },
+  };
 
-  return (
-    <Card
-      href={href}
-      className="group block "
-      initial="rest"
-      whileHover="hover"
-      whileTap="tap"
-      variants={{
-        rest: { y: 0 },
-        hover: { y: -6 },
-        tap: { y: -2 },
-      }}
-      transition={{ duration: 0.18, ease: "easeOut" }}
-    >
+  const content = (
+    <>
       {/* Media */}
       <motion.div
         className="relative aspect-video w-full overflow-hidden border border-white/10 bg-white/5 rounded-2xl"
@@ -110,6 +112,12 @@ export default function ProjectCard({
           <DeviceIcon device={device} />
         </div>
       </div>
-    </Card>
+    </>
+  );
+
+  return href ? (
+    <MotionLink href={href} {...animation}>{content}</MotionLink>
+  ) : (
+    <motion.div {...animation}>{content}</motion.div>
   );
 }

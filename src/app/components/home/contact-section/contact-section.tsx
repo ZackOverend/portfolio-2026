@@ -3,7 +3,7 @@
 import { useLenisAnchor } from "@/app/hooks/useLenisAnchor";
 import Link from "next/link";
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 export default function ContactSection() {
   const email = "zack.overend@outlook.com"; // change if needed

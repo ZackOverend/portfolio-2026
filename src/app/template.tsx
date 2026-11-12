@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { usePathname } from "next/navigation";
 
 export default function Template({ children }: { children: React.ReactNode }) {
@@ -10,90 +10,14 @@ export default function Template({ children }: { children: React.ReactNode }) {
   return (
     <AnimatePresence mode="wait">
       <motion.div key={pathname} className="relative">
-        {/* accent wash */}
-        <motion.div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[9999]"
-          initial={{ opacity: 0.0 }}
-          animate={{ opacity: 0.0 }}
-          exit={{ opacity: 0.0 }}
-        />
-
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -6 }}
           transition={{ duration: reduce ? 0 : 0.35, ease: "easeOut" }}
         >
-          {/* quick flash */}
-          <motion.div
-            aria-hidden
-            className="pointer-events-none fixed inset-0 z-[9999]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0 }}
-            exit={{ opacity: 0 }}
-          />
           {children}
         </motion.div>
-
-        {/* overlay that actually animates */}
-        <motion.div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[9999]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0 }}
-          exit={{ opacity: 0 }}
-        />
-
-        <motion.div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[9999]"
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 0 }}
-          exit={{ opacity: 0 }}
-        />
-
-        {/* single “flash” layer */}
-        <motion.div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[9999]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0 }}
-          exit={{ opacity: 0 }}
-        />
-
-        <motion.div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[9999]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0 }}
-          exit={{ opacity: 0 }}
-        />
-
-        <motion.div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[9999]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0 }}
-          exit={{ opacity: 0 }}
-        />
-
-        {/* Keep it simple: just one layer */}
-        <motion.div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[9999]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0 }}
-          exit={{ opacity: 0 }}
-        />
-
-        <motion.div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[9999]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0 }}
-          exit={{ opacity: 0 }}
-        />
 
         <motion.div
           aria-hidden

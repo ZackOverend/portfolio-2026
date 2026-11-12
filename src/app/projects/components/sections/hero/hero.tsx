@@ -1,7 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import type { Project } from "@/app/projects/project";
 
-export default function ProjectHero({ hero }: { hero: any }) {
+export default function ProjectHero({ hero }: { hero: Project["hero"] }) {
   return (
     <motion.div
       className="flex items-start justify-between"

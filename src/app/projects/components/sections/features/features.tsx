@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
+import type { Project } from "@/app/projects/project";
 
 function FeatureTile({
   icon,
@@ -10,7 +11,7 @@ function FeatureTile({
 }: {
   icon: string;
   text: string;
-  size: number;
+  size?: number;
 }) {
   return (
     <motion.div
@@ -29,7 +30,7 @@ function FeatureTile({
   );
 }
 
-export default function ProjectFeatures({ items }: { items: any[] }) {
+export default function ProjectFeatures({ items }: { items: Project["features"] }) {
   return (
     <div className="flex flex-wrap gap-6">
       {items.map((item, i) => (

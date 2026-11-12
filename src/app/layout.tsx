@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/styles/globals.css";
-import Navbar from "./components/navbar/navbar";
 import LenisProvider from "@/app/components/LenisProvider";
 
 const geistSans = Geist({
@@ -15,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zackaryoverend.com"),
   title: {
     default: "Zackary Overend — Portfolio",
     template: "%s · Zackary Overend",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "Zackary Overend Portfolio",
     images: [
       {
-        url: "/web-icon.svg", // put in /public
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Zackary Overend Portfolio",
@@ -59,12 +59,11 @@ export const metadata: Metadata = {
     description:
       "Clean, thoughtful mobile and web applications by Zackary Overend.",
     images: ["/og-image.png"],
-    creator: "@yourhandle", // optional
   },
 
   icons: {
     icon: [
-      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.png", sizes: "64x64", type: "image/png" },
       { url: "/favicon.ico" },
     ],
     apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
@@ -81,7 +80,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <Navbar /> */}
         <LenisProvider>{children}</LenisProvider>
       </body>
     </html>

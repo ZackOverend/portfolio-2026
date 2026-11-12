@@ -1,45 +1,19 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
-import Lenis from "lenis";
-
-const LenisContext = createContext<Lenis | null>(null);
-
-export function useLenis() {
-  return useContext(LenisContext);
-}
+import { ReactLenis } from "lenis/react";
+export { useLenis } from "lenis/react";
 
 export default function LenisProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [lenis, setLenis] = useState<Lenis | null>(null);
-
-  useEffect(() => {
-    const instance = new Lenis({
-      duration: 1,
-      smoothWheel: true,
-      touchMultiplier: 1.5,
-    });
-
-    setLenis(instance);
-
-    let rafId = 0;
-    const raf = (time: number) => {
-      instance.raf(time);
-      rafId = requestAnimationFrame(raf);
-    };
-    rafId = requestAnimationFrame(raf);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      instance.destroy();
-      setLenis(null);
-    };
-  }, []);
-
   return (
-    <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>
+    <ReactLenis
+      root
+      options={{ duration: 1, smoothWheel: true, touchMultiplier: 1.5, autoRaf: true }}
+    >
+      {children}
+    </ReactLenis>
   );
 }
