@@ -2,6 +2,8 @@
 
 import { motion, type Variants, easeOut } from "motion/react";
 import ProjectCard from "@/app/components/home/project-section/project-card";
+import { useEffect } from "react";
+import { onIdle, precacheImages, prioritizeImages } from "@/app/projects/precache";
 
 const projects = [
   {
@@ -69,7 +71,11 @@ const item: Variants = {
   },
 };
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ galleryImages }: { galleryImages: Record<string, string[][]> }) {
+  useEffect(() => onIdle(() => {
+    precacheImages(Object.values(galleryImages).flatMap((galleries) => galleries.map(([first]) => first)), 0);
+  }), [galleryImages]);
+
   return (
     <motion.div
       className="mx-4 my-16 grid grid-cols-1 gap-x-10 gap-y-14 sm:mx-10 md:grid-cols-2 lg:mx-24"
@@ -91,6 +97,7 @@ export default function ProjectsSection() {
             device={p.device}
             href={p.href}
             iconSrc={p.iconSrc}
+            precacheSources={prioritizeImages(galleryImages[p.href.split("/").pop()!] ?? [])}
           />
         </motion.div>
       ))}
