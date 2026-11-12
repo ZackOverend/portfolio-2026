@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { useRef } from "react";
 
-export type GalleryItem = { src: string; title: string };
+import type { GalleryItem } from "@/app/projects/project";
 
 export default function Gallery({
   items,
@@ -23,9 +22,7 @@ export default function Gallery({
   const prev = () => setIndex((index - 1 + items.length) % items.length);
 
   const [hover, setHover] = useState(false);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-
-  const wrapRef = useRef<HTMLButtonElement | null>(null);
+  const [pos, setPos] = useState({ x: 0, y: 0, width: 0, height: 0 });
 
   // Close on Esc
   useEffect(() => {
@@ -46,9 +43,8 @@ export default function Gallery({
   const TIP_H = 28; // approx height
   const PAD = 8;
 
-  const bounds = wrapRef.current?.getBoundingClientRect();
-  const wrapW = bounds?.width ?? 0;
-  const wrapH = bounds?.height ?? 0;
+  const wrapW = pos.width;
+  const wrapH = pos.height;
 
   const left = pos.x + PAD + TIP_W > wrapW ? pos.x - PAD - TIP_W : pos.x + PAD;
 
@@ -60,7 +56,6 @@ export default function Gallery({
       <div className="flex h-full w-full flex-col">
         {/* MEDIA AREA — fills available space */}
         <button
-          ref={wrapRef}
           type="button"
           onClick={() => setOpen(true)}
           onMouseEnter={() => setHover(true)}
@@ -70,6 +65,8 @@ export default function Gallery({
             setPos({
               x: e.clientX - rect.left,
               y: e.clientY - rect.top,
+              width: rect.width,
+              height: rect.height,
             });
           }}
           className="relative flex-1 overflow-hidden rounded-3xl border border-white/20 bg-white/10 p-6 text-left"
@@ -88,7 +85,7 @@ export default function Gallery({
                 alt={current.title}
                 fill
                 className="object-contain p-4"
-                priority
+                sizes="(max-width: 639px) calc(100vw - 64px), (max-width: 1151px) calc(100vw - 200px), 952px"
               />
             </motion.div>
           </AnimatePresence>
@@ -229,7 +226,7 @@ export default function Gallery({
                       alt={current.title}
                       fill
                       className="object-contain p-4"
-                      priority
+                      sizes="(max-width: 1055px) calc(100vw - 64px), 992px"
                     />
                   </motion.div>
                 </AnimatePresence>

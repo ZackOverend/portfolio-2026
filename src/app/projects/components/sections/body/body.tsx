@@ -1,10 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Gallery from "@/app/projects/components/gallery";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
+import type { Project, TwoColumnSection, RichTextSection, GallerySection } from "@/app/projects/project";
 
-export default function ProjectBody({ body }: { body: any[] }) {
+export default function ProjectBody({ body }: { body: Project["body"] }) {
   return (
     <div className="space-y-16">
       {body.map((section) => (
@@ -14,7 +15,7 @@ export default function ProjectBody({ body }: { body: any[] }) {
   );
 }
 
-function Section({ section }: { section: any }) {
+function Section({ section }: { section: Project["body"][number] }) {
   if (section.kind === "twoColumn") return <TwoColumn section={section} />;
   if (section.kind === "richText") return <RichText section={section} />;
   if (section.kind === "gallery")
@@ -22,14 +23,13 @@ function Section({ section }: { section: any }) {
   return null;
 }
 
-function TwoColumn({ section }: { section: any }) {
+function TwoColumn({ section }: { section: TwoColumnSection }) {
   const [index, setIndex] = useState(0);
 
   return (
     <motion.div
-      className={`mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_${
-        section.layout?.rightWidth ?? 420
-      }px]`}
+      className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_var(--right-width)]"
+      style={{ "--right-width": `${section.layout?.rightWidth ?? 420}px` } as CSSProperties}
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
@@ -55,7 +55,7 @@ function TwoColumn({ section }: { section: any }) {
   );
 }
 
-function RichText({ section }: { section: any }) {
+function RichText({ section }: { section: RichTextSection }) {
   return (
     <motion.div
       className="space-y-6 max-w-4xl"
@@ -74,7 +74,7 @@ function RichText({ section }: { section: any }) {
   );
 }
 
-function StandaloneGallery({ section }: { section: any }) {
+function StandaloneGallery({ section }: { section: GallerySection }) {
   const [index, setIndex] = useState(0);
 
   return (
