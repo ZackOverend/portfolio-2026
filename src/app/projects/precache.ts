@@ -1,8 +1,8 @@
 import { getImageProps } from "next/image";
 import type { Project } from "./project";
 
+// Shared by the inline gallery and the lightbox so both hit the same precached file.
 export const GALLERY_SIZES = "(max-width: 639px) calc(100vw - 64px), (max-width: 1151px) calc(100vw - 200px), 952px";
-export const LIGHTBOX_SIZES = "(max-width: 1055px) calc(100vw - 64px), 992px";
 
 export function collectGalleryImages(project: Project): string[][] {
   return project.body.flatMap((section) => {

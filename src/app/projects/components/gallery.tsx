@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 import type { GalleryItem } from "@/app/projects/project";
-import { GALLERY_SIZES, LIGHTBOX_SIZES, onIdle, precacheImages } from "@/app/projects/precache";
+import { GALLERY_SIZES, onIdle, precacheImages } from "@/app/projects/precache";
 
 export default function Gallery({
   items,
@@ -237,7 +237,7 @@ export default function Gallery({
                       alt={current.title}
                       fill
                       className="object-contain p-4"
-                      sizes={LIGHTBOX_SIZES}
+                      sizes={GALLERY_SIZES}
                     />
                   </motion.div>
                 </AnimatePresence>
