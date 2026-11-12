@@ -73,7 +73,10 @@ const item: Variants = {
 
 export default function ProjectsSection({ galleryImages }: { galleryImages: Record<string, string[][]> }) {
   useEffect(() => onIdle(() => {
-    precacheImages(Object.values(galleryImages).flatMap((galleries) => galleries.map(([first]) => first)), 0);
+    // Two waves: the first image of every gallery, then everything else.
+    const galleries = Object.values(galleryImages).flat();
+    precacheImages(galleries.map(([first]) => first), 0);
+    precacheImages(galleries.flatMap((images) => images.slice(1)), -1);
   }), [galleryImages]);
 
   return (
