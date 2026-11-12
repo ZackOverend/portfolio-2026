@@ -1,58 +1,10 @@
 @import "tailwindcss";
 
 @layer utilities {
-  .bg-image-in {
-    background: radial-gradient(
-        1200px 700px at 30% 10%,
-        rgba(255, 255, 255, 0.12),
-        transparent 55%
-      ),
-      radial-gradient(
-        900px 600px at 70% 30%,
-        rgba(255, 255, 255, 0.08),
-        transparent 60%
-      ),
-      linear-gradient(180deg, #383838 0%, #878787 100%);
-  }
-  .bg-indstudio51 {
-    background: radial-gradient(
-        1200px 700px at 30% 10%,
-        rgba(255, 255, 255, 0.12),
-        transparent 55%
-      ),
-      radial-gradient(
-        900px 600px at 70% 30%,
-        rgba(255, 255, 255, 0.08),
-        transparent 60%
-      ),
-      linear-gradient(180deg, #6a6550 0%, #8f6f62 55%, #caa89a 100%);
-  }
-  .bg-nova-weather {
-    background: radial-gradient(
-        1200px 700px at 30% 10%,
-        rgba(255, 255, 255, 0.12),
-        transparent 55%
-      ),
-      radial-gradient(
-        900px 600px at 70% 30%,
-        rgba(255, 255, 255, 0.08),
-        transparent 60%
-      ),
-      linear-gradient(180deg, #4b596c 0%, #91add2 100%);
-  }
-  .bg-resuhost {
-    background: radial-gradient(
-        1200px 700px at 30% 10%,
-        rgba(255, 255, 255, 0.12),
-        transparent 55%
-      ),
-      radial-gradient(
-        900px 600px at 70% 30%,
-        rgba(255, 255, 255, 0.08),
-        transparent 60%
-      ),
-      linear-gradient(180deg, #5c4a7a 0%, #5a6aaa 55%, #6a8fc4 100%);
-  }
+  .bg-image-in,
+  .bg-indstudio51,
+  .bg-nova-weather,
+  .bg-resuhost,
   .bg-nwm {
     background: radial-gradient(
         1200px 700px at 30% 10%,
@@ -64,7 +16,23 @@
         rgba(255, 255, 255, 0.08),
         transparent 60%
       ),
-      linear-gradient(180deg, #4a7a5e 0%, #6aaa8a 55%, #92cca8 100%);
+      var(--project-gradient);
+  }
+
+  .bg-image-in {
+    --project-gradient: linear-gradient(180deg, #383838 0%, #878787 100%);
+  }
+  .bg-indstudio51 {
+    --project-gradient: linear-gradient(180deg, #6a6550 0%, #8f6f62 55%, #caa89a 100%);
+  }
+  .bg-nova-weather {
+    --project-gradient: linear-gradient(180deg, #4b596c 0%, #91add2 100%);
+  }
+  .bg-resuhost {
+    --project-gradient: linear-gradient(180deg, #5c4a7a 0%, #5a6aaa 55%, #6a8fc4 100%);
+  }
+  .bg-nwm {
+    --project-gradient: linear-gradient(180deg, #4a7a5e 0%, #6aaa8a 55%, #92cca8 100%);
   }
 }
 
@@ -72,9 +40,6 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-secondary: var(--secondary);
-  --color-navbar: var(--navbar);
-  --color-navbar-link-hover: var(--navbar-link-hover);
-  --color-nwm-background: var(--projects-nwm-background);
   --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -84,28 +49,13 @@
   --background: #090c10;
   --foreground: #ededed;
   --secondary: #1c2430;
-  --navbar: #1e293b;
-  --navbar-link-hover: #76ffbf;
   --accent: #76ffbf;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #090c10;
-    --foreground: #ededed;
-    --secondary: #1c2430;
-    --navbar: #1e293b;
-    --navbar-link-hover: #76ffbf;
-    --accent: #76ffbf;
-
-    --projects-nwm-background: #91add2;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
 /* dotted grid overlay */
@@ -136,25 +86,6 @@ body {
   height: 3px;
   background: var(--color-accent);
   box-shadow: 0 0 20px rgba(118, 255, 191, 0.25);
-}
-
-.animated-underline {
-  position: relative;
-  display: inline-block;
-}
-
-.animated-underline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  height: 2px;
-  width: 100%;
-  background-color: var(--accent);
-
-  transform: scaleX(var(--underline-scale, 0));
-  transform-origin: left;
-  transition: transform 0.6s ease-out;
 }
 
 .h1 {

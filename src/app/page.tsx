@@ -5,7 +5,7 @@ import ContactSection from "./components/home/contact-section/contact-section";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div id="top" className="min-h-screen bg-background">
       <main className="mx-auto w-full max-w-7xl px-6 space-y-24">
         <DotGridParallax
           className="top-36 absolute inset-0 dot-grid opacity-80"
