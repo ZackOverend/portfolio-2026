@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { precacheImages } from "@/app/projects/precache";
 
 const MotionLink = motion.create(Link);
 
@@ -15,6 +16,7 @@ type ProjectCardProps = {
   href?: string;
   device?: Device;
   iconSrc?: string;
+  precacheSources?: string[];
 };
 
 function DeviceIcon({ device = "desktop" }: { device?: Device }) {
@@ -35,6 +37,7 @@ export default function ProjectCard({
   href,
   device = "desktop",
   iconSrc,
+  precacheSources = [],
 }: ProjectCardProps) {
   const animation = {
     className: "group block",
@@ -116,7 +119,12 @@ export default function ProjectCard({
   );
 
   return href ? (
-    <MotionLink href={href} {...animation}>{content}</MotionLink>
+    <MotionLink href={href} {...animation}
+      onPointerEnter={() => precacheImages(precacheSources)}
+      onFocus={() => precacheImages(precacheSources)}
+      onPointerDown={() => precacheImages(precacheSources)}
+      onTouchStart={() => precacheImages(precacheSources)}
+    >{content}</MotionLink>
   ) : (
     <motion.div {...animation}>{content}</motion.div>
   );

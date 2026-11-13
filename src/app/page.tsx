@@ -2,6 +2,8 @@ import HeroSection from "@/app/components/home/hero-section/hero-section";
 import ProjectsSection from "./components/home/project-section/project-section";
 import DotGridParallax from "./components/DotGridParallax";
 import ContactSection from "./components/home/contact-section/contact-section";
+import { projects } from "./projects/data";
+import { collectGalleryImages } from "./projects/precache";
 
 export default function Home() {
   return (
@@ -15,7 +17,9 @@ export default function Home() {
         <section id="hero">
           <HeroSection />
           <div className="relative mt-10 h-px w-full bg-white/80" />
-          <ProjectsSection />
+          <ProjectsSection galleryImages={Object.fromEntries(
+            Object.entries(projects).map(([slug, project]) => [slug, collectGalleryImages(project)])
+          )} />
           <div className="relative mt-10 h-px w-full bg-white/80" />
           <ContactSection />
         </section>

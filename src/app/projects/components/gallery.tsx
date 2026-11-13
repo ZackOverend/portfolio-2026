@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 import type { GalleryItem } from "@/app/projects/project";
+import { GALLERY_SIZES, onIdle, precacheImages } from "@/app/projects/precache";
 
 export default function Gallery({
   items,
@@ -17,6 +18,16 @@ export default function Gallery({
 }) {
   const current = items[index];
   const [open, setOpen] = useState(false);
+
+  useEffect(() => onIdle(() => precacheImages(items.slice(1).map(({ src }) => src), 0)), [items]);
+
+  useEffect(() => {
+    if (items.length < 2) return;
+    precacheImages([
+      items[(index + 1) % items.length].src,
+      items[(index - 1 + items.length) % items.length].src,
+    ], 2);
+  }, [index, items]);
 
   const next = () => setIndex((index + 1) % items.length);
   const prev = () => setIndex((index - 1 + items.length) % items.length);
@@ -85,7 +96,7 @@ export default function Gallery({
                 alt={current.title}
                 fill
                 className="object-contain p-4"
-                sizes="(max-width: 639px) calc(100vw - 64px), (max-width: 1151px) calc(100vw - 200px), 952px"
+                sizes={GALLERY_SIZES}
               />
             </motion.div>
           </AnimatePresence>
@@ -226,7 +237,7 @@ export default function Gallery({
                       alt={current.title}
                       fill
                       className="object-contain p-4"
-                      sizes="(max-width: 1055px) calc(100vw - 64px), 992px"
+                      sizes={GALLERY_SIZES}
                     />
                   </motion.div>
                 </AnimatePresence>
